@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Study Tracker</title>
+<link rel="stylesheet" href="style.css">
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Daily Study Tracker</h1>
+      <p class="muted">Log questions solved (Physics / Chemistry / Maths) and mocks per day. Saved locally in your browser.</p>
+    </header>
+
+    <main>
+      <form id="entryForm" class="card">
+        <div class="row">
+          <label>Date<input type="date" id="date" required></label>
+        </div>
+        <div class="grid">
+          <label>Physics (Qs)<input type="number" id="phy" min="0" value="0"></label>
+          <label>Chemistry (Qs)<input type="number" id="chem" min="0" value="0"></label>
+          <label>Maths (Qs)<input type="number" id="math" min="0" value="0"></label>
+          <label>Mocks<input type="number" id="mocks" min="0" value="0"></label>
+        </div>
+        <div class="actions">
+          <button id="saveBtn" type="submit">Save / Update Entry</button>
+          <button id="clearForm" type="button">Clear</button>
+        </div>
+      </form>
+
+      <section class="card small">
+        <div class="flex-between">
+          <h2>Totals</h2>
+          <div class="controls">
+            <button id="exportBtn">Export JSON</button>
+            <label class="importBtn">Import JSON<input id="importFile" type="file" accept=".json"></label>
+            <button id="clearAll">Clear All</button>
+          </div>
+        </div>
+        <p id="totalsText" class="muted">No data yet.</p>
+      </section>
+
+      <section class="card">
+        <h2>Progress Chart</h2>
+        <canvas id="chart" height="140"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Entries</h2>
+        <div id="entries"></div>
+      </section>
+    </main>
+
+    <footer class="muted">This site stores data in your browser's localStorage. Nothing leaves your device.</footer>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
